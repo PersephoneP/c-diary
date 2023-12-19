@@ -26,9 +26,9 @@
 #define DAYS_PER_YEAR 365
 #define DAYS_PER_LEAP_YEAR 366
 #define UNIX_EPOCH_YEAR 1970
-	// .\make.bat
-	// .\make.bat run
-	// .\make.bat clean
+	// make
+	// make run
+	// make clean
 
 // Function declaration
 int DayOfWeek(struct Date date)

@@ -22,6 +22,8 @@
 // #include <stdbool.h> // Commented out because I might not need it
 
 // Macros
+#define MAX_BUFFER_SIZE 2147483647
+
 // Global variables
 
 
@@ -61,12 +63,19 @@ int main(void)
     initscr();
     raw();
     keypad(stdscr, TRUE);
-    int ch;
-    while ((ch = getch()) != 'q')
+    char* ch = calloc(10000, sizeof(char));
+    char r;
+    int k = 0;
+    while ((r = getch()) != 'q')
     {
-        printw("Key pressed: %c\n", ch);
+        ch[k] = (char)r;
+        printw("Key pressed: %c\n", ch[k]);
         refresh();
+        k++;
     }
+    system("cls");
+    puts(ch);
+    printf("Buffer exceeded maximum buffer size (What the fuck are you doing with %i characters?)\n", MAX_BUFFER_SIZE);
     return 0;
 }
 // EOF: listening to Inabakumori - Copy and Pastime

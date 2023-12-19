@@ -42,10 +42,11 @@
  * 
  ******************************************************/
 // Header Imports
-
+#include <string.h>
+#include <stdio.h>
 
 // Macro Hell
-
+#define MAX_BUFFER_SIZE 2147483647
 
 // Function Declarations
 
@@ -63,5 +64,13 @@ void CaptureCopy(void);
 void CaptureCut(void);
 void CapturePaste(void);
 void CaptureFind(void);
+char* BufferText(char *buffer, char *key)
+{
+    unsigned int size = strlen(buffer) + strlen(key) + 1;
+    if (size > MAX_BUFFER_SIZE)
+    {
+        printf("Buffer exceeded maximum buffer size (What the fuck are you doing with %'i characters?)", MAX_BUFFER_SIZE);
+    }
+}
 
 // EOF
