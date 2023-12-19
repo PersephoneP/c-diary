@@ -44,10 +44,11 @@
 // Header Imports
 #include <string.h>
 #include <stdio.h>
-
+#include "notepad.h"
+#include "errors.h"
 // Macro Hell
-#define MAX_BUFFER_SIZE 2147483647
-
+#define MAX_BUFFER_SIZE 2147483647 // Why would you have 2.1 billion characters in a diary? Use AWS for that.
+#define null NULL
 // Function Declarations
 
 void CaptureInput(void);
@@ -64,13 +65,30 @@ void CaptureCopy(void);
 void CaptureCut(void);
 void CapturePaste(void);
 void CaptureFind(void);
-char* BufferText(char *buffer, char *key)
+enum CODE BufferText(struct Buffer *buffer, int *key)
 {
-    unsigned int size = strlen(buffer) + strlen(key) + 1;
+    // Did you know that I have never read "The ANSI C Programming Language?"
+    size_t size = strlen(buffer->Buffer) + strlen((char)key) + 1;
     if (size > MAX_BUFFER_SIZE)
     {
-        printf("Buffer exceeded maximum buffer size (What the fuck are you doing with %'i characters?)", MAX_BUFFER_SIZE);
+        printf("Buffer exceeded maximum buffer size.\n(What the fuck are you doing with %lu characters? Are you trying to write an OS in a diary application?)", MAX_BUFFER_SIZE);
+        return EXCESSIVE_BUFFERING;
     }
+    if (size > buffer->BufferSize)
+    {
+        char *newBuffer = realloc(buffer->Buffer, size);
+        // buffer->Buffer = realloc(buffer->Buffer, size);
+        if (newBuffer == NULL)
+        {
+            fprintf(stderr, "Failed to properly allocate memory D:\n");
+            return MEM_ALLOC_ERROR;
+        }
+        buffer->Buffer = newBuffer;
+        buffer->BufferSize = size;
+    }
+    strcat(buffer->Buffer, key);
+    *key = 0; // reset key for next ncursesw char
+    return SUCCESS;
 }
 
-// EOF
+// EOF: Listening to inabakumori - An image in the making

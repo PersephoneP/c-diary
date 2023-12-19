@@ -19,6 +19,7 @@
 #include <string.h>
 #include <ncurses/curses.h>
 #include "date.h"
+#include "notepad.h"
 // #include <stdbool.h> // Commented out because I might not need it
 
 // Macros
@@ -64,12 +65,12 @@ int main(void)
     raw();
     keypad(stdscr, TRUE);
     char* ch = calloc(10000, sizeof(char));
-    char r;
+    int r;
     int k = 0;
     while ((r = getch()) != 'q')
     {
         ch[k] = (char)r;
-        printw("Key pressed: %c\n", ch[k]);
+        printw("Key pressed: %#x\n", (unsigned int)ch[k]);
         refresh();
         k++;
     }
@@ -78,4 +79,4 @@ int main(void)
     printf("Buffer exceeded maximum buffer size (What the fuck are you doing with %i characters?)\n", MAX_BUFFER_SIZE);
     return 0;
 }
-// EOF: listening to Inabakumori - Copy and Pastime
+// EOF: listening to inabakumori - Copy and Pastime
