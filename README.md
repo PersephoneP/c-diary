@@ -16,3 +16,4 @@ This may be part of a larger project. However, that will be for a later day, whe
 19 Dec 2023, 12:35 UTC -5:00 : retest
 19 Dec 2023, 12:36 UTC -5:00 : formatting fucked up
 19 Dec 2023, 12:37 UTC -5:00 : fixing formatting later
+19 Dec 2023, 12:39 UTC -5:00 : Imagine if I fucked up the file naming scheme and it's supposed to be README.md and not just README. That would be so embarassing. Thank god I'm not *that* incompetent.
