@@ -27,3 +27,8 @@ This may be part of a larger project. However, that will be for a later day, whe
 19 Dec 2023, 12:39 UTC -5:00 : Imagine if I fucked up the file naming scheme and it's supposed to be README.md and not just README. That would be so embarassing. Thank god I'm not *that* incompetent.
 
 19 Dec 2023, 12:41 UTC -5:00 : more formatting issues but ***GOD FUCKING DAMN IT I'M STILL INCOMPETENT***
+
+19 Dec 2023, 13:02 UTC -5:00 : experimentation, finally beginning notepad, removed unnecessary make.bat
+
+20 Dec 2023, 11:15 UTC -5:00 : I am desperate for the touch of a woman
+                               Struggled for the past day with an error that resulted from an erroneous call of `BufferText(struct Buffer *, char *) (notepad.c)`

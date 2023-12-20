@@ -64,19 +64,13 @@ int main(void)
     initscr();
     raw();
     keypad(stdscr, TRUE);
-    char* ch = calloc(10000, sizeof(char));
-    int r;
+    struct Buffer buffer;
+    buffer.Buffer = calloc(8, sizeof(char));
+    char r;
     int k = 0;
-    while ((r = getch()) != 'q')
-    {
-        ch[k] = (char)r;
-        printw("Key pressed: %#x\n", (unsigned int)ch[k]);
-        refresh();
-        k++;
-    }
+    EditText(&buffer);
     system("cls");
-    puts(ch);
-    printf("Buffer exceeded maximum buffer size (What the fuck are you doing with %i characters?)\n", MAX_BUFFER_SIZE);
+    puts(buffer.Buffer);
     return 0;
 }
 // EOF: listening to inabakumori - Copy and Pastime

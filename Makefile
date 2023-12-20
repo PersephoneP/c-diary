@@ -22,10 +22,8 @@ $(BINDIR)/$(TARGET): $(OBJECTS)
 %.o: %.c $(HEADERS)
 	$(COMPLR) $(CFLAGS) -I$(INCDIR) -c $< -o $@ $(DEPEND)
 
-
 run:
 	.\$(BINDIR)\$(TARGET).exe
-
 
 clean:
 	del "$(SRCDIR)\*.o"
