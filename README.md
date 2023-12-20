@@ -30,5 +30,6 @@ This may be part of a larger project. However, that will be for a later day, whe
 
 19 Dec 2023, 13:02 UTC -5:00 : experimentation, finally beginning notepad, removed unnecessary make.bat
 
-20 Dec 2023, 11:15 UTC -5:00 : I am desperate for the touch of a woman
+20 Dec 2023, 11:15 UTC -5:00 : I am desperate for the touch of a woman.
+
                                Struggled for the past day with an error that resulted from an erroneous call of `BufferText(struct Buffer *, char *) (notepad.c)`
