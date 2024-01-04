@@ -20,7 +20,7 @@ struct Buffer
 {
     size_t BufferSize;
     size_t Position;
-    char *Buffer;
+    char *Buffer; // turns out placing size variables before the variable size variable doesn't fare too well lol
 };
 struct NotepadFlags // Contains a bunch of flags for the notepad
 {
