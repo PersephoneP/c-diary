@@ -65,12 +65,21 @@ int main(void)
     raw();
     keypad(stdscr, TRUE);
     struct Buffer buffer;
-    buffer.Buffer = calloc(8, sizeof(char));
-    char r;
-    int k = 0;
-    EditText(&buffer);
+    struct NotepadFlags flags;
+    InitializeBuffer(&buffer, 7);
+    CleanBuffer(&buffer);
+    // char r;
+    // int k = 0;
+    CaptureInput(&buffer, &flags);
+    // EditText(&buffer);
     system("cls");
     puts(buffer.Buffer);
+    /*
+        for (int i = 0; i < buffer.BufferSize; i++)
+    {
+        printf("%#02x: %#02x -> %c\n", i, (char)buffer.Buffer[i], (char)buffer.Buffer[i]);
+    }
+    */
     return 0;
 }
 // EOF: listening to inabakumori - Copy and Pastime

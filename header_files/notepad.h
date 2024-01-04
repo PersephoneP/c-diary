@@ -18,18 +18,24 @@ struct ExperimentalSettings // dw ;)
 };
 struct Buffer
 {
-    char *Buffer;
     size_t BufferSize;
+    size_t Position;
+    char *Buffer;
 };
-struct NotepadSettings
+struct NotepadFlags // Contains a bunch of flags for the notepad
 {
     int Editing; // 0: Not editing; 1: Editing
+    int ValidCharacter;
 };
 
 // Function Prototypes
+
+void CaptureInput(struct Buffer *, struct NotepadFlags *);
 enum CODE BufferText(struct Buffer *, char *);
 enum CODE EditText(struct Buffer *);
-
+void CleanBuffer(struct Buffer *);
+void InitializeBuffer(struct Buffer *, int);
+enum CODE Concatenate(struct Buffer *, char *);
 /* EOF: Did you know that I like inabakumori? You did? H-how?
  *      Well, did you know that I don't understand Japanese?
  *      O-oh... you... inferred that...
